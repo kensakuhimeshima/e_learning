@@ -1,1 +1,32 @@
-<%= @user.name %>
+<div class="bg-dark vh-100">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <div class="card mx-auto" style="width: 16rem;">
+                    <% if @user.avatar %>
+                        <%= image_tag @user.avatar %>
+                    <% else%>
+                        <%= image_tag 'image2.jpeg', class: "card-img-top"%>
+                    <% end %>
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><%= @user.name %></h5>
+                        <p class="card-text"><%= @user.email %></p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item">Folowers 0</li>
+                        <li class="list-group-item">Follewing 0</li>
+                    </ul>
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-dark btn-lg">Words learned</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 text-center pt-3 text-white">
+            <h1>Activities</h1>
+        </div>
+    </div>
+</div>
+
+
+
