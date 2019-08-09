@@ -16,7 +16,7 @@
                     </div>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <%= link_to "View profile", current_user, class:"dropdown-item"%>
-                        <%= link_to "Update profile","#", class:"dropdown-item"%>
+                        <%= link_to "Update profile",edit_user_path(current_user), class:"dropdown-item"%>
                         <%= link_to "Log Out", logout_path, method: :delete, class:"dropdown-item"%>
                     </div>
                 </li>
