@@ -22,12 +22,12 @@
                     <%= f.password_field :password_confirmation, class: "form-control" %>
                 </div>
 
-            <% if logged_in? %>
-                <div class="form-group">
-                    <%= f.label :avatar %>  
-                    <%= f.file_field :avatar, class: "form-control" %>
-                </div>
-            <% end %>
+                <% if logged_in? %>
+                    <div class="form-group">
+                        <%= f.label :avatar %>  
+                        <%= f.file_field :avatar, class: "form-control" %>
+                    </div>
+                <% end %>
 
                 <hr class="my-4">
 
