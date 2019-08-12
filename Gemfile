@@ -45,6 +45,9 @@ gem 'will_paginate-bootstrap4'
 # For seeding data
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
+gem "mini_magick"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
