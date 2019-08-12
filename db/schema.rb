@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_013603) do
     t.string "name"
     t.string "email"
     t.string "avatar"
-    t.boolean "is_admin"
+    t.boolean "is_admin", default: false
     t.string "password_digest"
   end
 
