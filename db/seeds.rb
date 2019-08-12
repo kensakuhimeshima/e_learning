@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create!(
+  name: "kensaku Himeshima",
+  email: "n.w.a.rndd@gmail.com",
+  password: "password",
+  is_admin: true
+)
+
+50.times do |n|
+  User.create!(
+      name: Faker::JapaneseMedia::OnePiece.character,
+      email: Faker::Internet.unique.email,
+      password: "password"
+  )
+end
