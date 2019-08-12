@@ -9,5 +9,7 @@ class User < ApplicationRecord
                                     format: {with: EMAIL_REGEX },
                                     uniqueness: {case_sensitive: false}
 
-  validates :password, length: { minimum: 6 }, allow_nil: true  
+  validates :password, length: { minimum: 6 }, allow_nil: true
+  
+  mount_uploader :avatar, AvatarUploader
 end

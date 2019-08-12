@@ -3,10 +3,10 @@
         <div class="col-md-4">
             <div>
                 <div class="card mx-auto" style="width: 16rem;">
-                    <% if @user.avatar %>
-                        <%= image_tag @user.avatar %>
+                    <% if @user.avatar? %>
+                        <%= image_tag @user.avatar.url , class: "profile-picture" %>
                     <% else%>
-                        <%= image_tag 'image2.jpeg', class: "card-img-top"%>
+                        <%= image_tag 'image2.jpeg', class: "profile-picture"%>
                     <% end %>
                     <div class="card-body text-center">
                         <h5 class="card-title"><%= @user.name %></h5>
