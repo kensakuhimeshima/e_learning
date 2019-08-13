@@ -1,0 +1,32 @@
+<h1 class="text-center border-bottom p-4 mb-3">Administer Users</h1>
+
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Admin</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <% @users.each do |user|%>
+                    <tr>
+                        <td><%= user.name %></td>
+                        <td><%= user.email %></td>
+                        <% if user.is_admin? %>
+                            <td><%= link_to 'Remove', [:admin, user], method: :delete, class: "btn btn-dark text-center" %></td>
+                        <% else %>
+                            <td><%= link_to 'Add', [:admin, user], method: :patch, class: "btn btn-dark text-center" %></td>
+                        <% end %>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="paginate text-center">
+    <%= will_paginate %>
+</div>
