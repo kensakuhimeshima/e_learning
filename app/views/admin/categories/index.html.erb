@@ -1,6 +1,33 @@
 <div class="row">
-    <div class="col-4 offset-4 mt-5 text-center">
+    <div class="col-6 offset-3 mt-5 text-center">
         <h1>Adminiser categories</h1>
         <%= link_to "New category", new_admin_category_path , class: "btn btn-dark btn-lg"%>
-    </div>
+
+        <table class="table mt-3 table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Settings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @categories.each do |category| %>
+                    <tr>
+                        <td><%= category.title %></td>
+                        <td><%= category.description %></td>
+                        <td>
+                            <%= link_to 'Edit', "" %>/
+                            <%= link_to 'Delete', "" %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <%= link_to 'Back', admin_home_path, class: "back-btn" %>
+    </div>    
+</div>
+
+<div class="paginate text-center">
+    <%= will_paginate %>
 </div>

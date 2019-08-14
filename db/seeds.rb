@@ -19,3 +19,10 @@ User.create!(
       password: "password"
   )
 end
+
+50.times do |n|
+  Category.create!(
+      title: Faker::JapaneseMedia::OnePiece.character,
+      description: Faker::Internet.unique.email,
+  )
+end
