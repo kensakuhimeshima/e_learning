@@ -1,5 +1,5 @@
 <%= form_for [:admin, @category] do |f| %>
-<%= render "shared/error_messages", object: @category %>
+    <%= render "shared/error_messages", object: @category %>
     <div class="form-group">
         <%= f.label :title %>
         <%= f.text_field :title, class: "form-control" %>
