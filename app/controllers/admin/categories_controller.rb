@@ -14,6 +14,20 @@ class Admin::CategoriesController < ApplicationController
     end 
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    
+    if @category.update(categories_params)
+      redirect_to admin_categories_url
+    else
+      render 'edit'
+    end
+  end
+
   def index
     @categories = Category.paginate(page: params[:page], per_page: 10)
   end
