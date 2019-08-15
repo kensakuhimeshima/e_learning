@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-4 offset-4 mt-5">
+        <h1 class="text-center title"><%= @category.title %></h1>
+        <h4 class="text-center"><%= @category.description %></h4>
+        <br>
+        <div class="container text-center">
+            <div class="btn-design">
+                <%= link_to 'New words', new_admin_category_word_path, class: "btn btn-dark btn-lg" %>
+            </div>
+            <%= link_to 'Back', admin_categories_path, class: "back-btn" %>
+        </div>  
+    </div>
+</div>
