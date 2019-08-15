@@ -28,6 +28,13 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+
+    redirect_to admin_categories_url
+  end
+
   def index
     @categories = Category.paginate(page: params[:page], per_page: 10)
   end
