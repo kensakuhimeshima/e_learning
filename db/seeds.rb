@@ -22,7 +22,7 @@ end
 
 50.times do |n|
   Category.create!(
-      title: Faker::JapaneseMedia::OnePiece.character,
-      description: Faker::Internet.unique.email,
+      title: Faker::JapaneseMedia::OnePiece.location,
+      description: Faker::JapaneseMedia::OnePiece.akuma_no_mi
   )
 end
