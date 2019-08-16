@@ -21,6 +21,22 @@ class Admin::WordsController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+    @word = Word.find(params[:id])
+    @category = Category.find(params[:category_id])
+  end
+
+  def update
+    @word= Word.find(params[:id])
+    
+    if @word.update(word_params)
+      flash[:success] = "Word successfully updated"
+      redirect_to admin_category_words_url
+    else
+      render 'edit'
+    end
+  end
   
   private
   def word_params
