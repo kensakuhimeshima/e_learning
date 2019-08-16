@@ -1,4 +1,5 @@
-<%= form_for :word, url: "" do |f| %>
+<%= form_for [:admin, @category, @word] do |f| %>
+    <%= render "shared/error_messages", object: @word %>
     <div class="form-group">
         <%= f.label :content, "Word" %>
         <%= f.text_field :content, class: "form-control" %>
@@ -12,4 +13,6 @@
             <p class="d-inline">This is the answer!</p>
         <% end %>
     </div>
+
+    <%= f.submit 'Create new words', class: "btn btn-dark btn-block" %>
 <% end %>
