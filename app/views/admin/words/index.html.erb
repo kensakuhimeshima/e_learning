@@ -7,6 +7,27 @@
             <div class="btn-design">
                 <%= link_to 'New words', new_admin_category_word_path, class: "btn btn-dark btn-lg" %>
             </div>
+            <table class="table mt-3 table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Word</th>
+                        <th scope="col">Answer</th>
+                        <th scope="col">Settings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @words.each do |word| %>
+                        <tr>
+                            <td><%= word.content %></td>
+                            <td><%= word.correct_answer %></td>
+                            <td>
+                                <%= link_to 'Edit', "" %> /
+                                <%= link_to 'Delete',"" , method: :delete, data: { confirm: "Are your sure?"} %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
             <%= link_to 'Back', admin_categories_path, class: "back-btn" %>
         </div>  
     </div>
