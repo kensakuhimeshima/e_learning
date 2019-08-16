@@ -22,7 +22,7 @@
                             <td><%= word.correct_answer %></td>
                             <td>
                                 <%= link_to 'Edit', edit_admin_category_word_path(@category, word) %> /
-                                <%= link_to 'Delete',"" , method: :delete, data: { confirm: "Are your sure?"} %>
+                                <%= link_to 'Delete', admin_category_word_path(@category, word), method: :delete, data: { confirm: "Are your sure?"} %>
                             </td>
                         </tr>
                     <% end %>

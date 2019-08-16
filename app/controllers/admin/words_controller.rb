@@ -37,6 +37,13 @@ class Admin::WordsController < ApplicationController
       render 'edit'
     end
   end
+
+  def destroy
+    @word = Word.find(params[:id])
+    @word.destroy
+
+    redirect_to admin_category_words_url
+  end
   
   private
   def word_params
