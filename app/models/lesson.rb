@@ -7,4 +7,9 @@ class Lesson < ApplicationRecord
   def next_word
     (category.words - words).first
   end
+
+  def correct_answers
+    self.answers.joins(:choice).where(choices: {is_correct: true})
+  end
 end
+

@@ -17,6 +17,7 @@
             <% @categories.each do |category| %>
                 <div class="row mb-2 d-inline-block w-50">
                     <% unless category.words.empty? %>
+                        <% lesson = @user.lesson_taken(category.id) %>
                         <div class="col">
                             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
                                 <div class="col p-4 d-flex flex-column position-static">
@@ -29,9 +30,14 @@
                                     <br>
                                     <br>
                                     <div class="text-right">
+                                    <%#= hidden_field_tag @result =  %>
                                         <%= form_for @lesson do |f| %>
                                             <%= hidden_field_tag :category_id, category.id %>
-                                            <%= f.submit "Learn", class: "btn btn-outline-dark text-right"%>
+                                            <% if lesson.nil? %>
+                                                <%= f.submit "Learn", class: "btn btn-outline-dark text-right"%>
+                                            <% else %>
+                                                <%= link_to "Result",lesson , class: "btn btn-outline-dark text-right"%>
+                                            <% end %>
                                         <% end %> 
                                     </div> 
                                 </div>
