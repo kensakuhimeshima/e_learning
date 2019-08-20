@@ -20,9 +20,9 @@ User.create!(
   )
 end
 
-50.times do |n|
-  Category.create!(
-      title: Faker::JapaneseMedia::OnePiece.location,
-      description: Faker::JapaneseMedia::OnePiece.akuma_no_mi
-  )
-end
+# 50.times do |n|
+#   Category.create!(
+#       title: Faker::JapaneseMedia::OnePiece.location,
+#       description: Faker::JapaneseMedia::OnePiece.akuma_no_mi
+#   )
+# end
