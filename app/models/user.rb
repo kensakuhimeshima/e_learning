@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :lessons, dependent: :destroy
+  
   has_secure_password
   before_save { email.downcase! }
 

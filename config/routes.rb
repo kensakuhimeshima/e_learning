@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  get 'answers/new'
-  get 'categories/index'
   root 'static_pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get 'categories/index'
   get '/signup', to:'users#new'
   get '/login', to: 'sessions#new'
   delete '/logout', to: 'sessions#destroy'
+  
   resources :users
   resources :sessions
+  resources :lessons, only: [:create, :show] do
+    resources :answers, only: [:new, :create]
+  end
+
   namespace :admin do 
     get '/home', to:'users#home'
     resources :users

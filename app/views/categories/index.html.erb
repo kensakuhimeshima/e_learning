@@ -16,23 +16,28 @@
             <br>
             <% @categories.each do |category| %>
                 <div class="row mb-2 d-inline-block w-50">
-                    <div class="col">
-                        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <div class="text-left">
-                                    <%= category.title %>
+                    <% unless category.words.empty? %>
+                        <div class="col">
+                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <div class="text-left">
+                                        <%= category.title %>
+                                    </div>
+                                    <div class="text-left">
+                                        <%= category.description %>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="text-right">
+                                        <%= form_for @lesson do |f| %>
+                                            <%= hidden_field_tag :category_id, category.id %>
+                                            <%= f.submit "Learn", class: "btn btn-outline-dark text-right"%>
+                                        <% end %> 
+                                    </div> 
                                 </div>
-                                <div class="text-left">
-                                    <%= category.description %>
-                                </div>
-                                <br>
-                                <br>
-                                <div class="text-right">
-                                    <%= link_to "Learn", answers_new_path , class: "btn btn-outline-dark text-right"%> 
-                                </div> 
                             </div>
                         </div>
-                    </div>
+                    <% end %>
                 </div>
             <% end %>
         </div>    
