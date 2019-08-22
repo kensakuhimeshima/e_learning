@@ -26,3 +26,10 @@ end
 #       description: Faker::JapaneseMedia::OnePiece.akuma_no_mi
 #   )
 # end
+
+users = User.all
+user = users.find_by(id: 2)
+following = users[2..10]
+followers = users[3..15]
+following.each {|followed|user.follow(followed)}
+followers.each {|follower|follower.follow(user)}

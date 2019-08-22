@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   delete '/logout', to: 'sessions#destroy'
   
-  resources :users
   resources :sessions
   resources :lessons, only: [:create, :show] do
     resources :answers, only: [:new, :create]
@@ -21,4 +20,10 @@ Rails.application.routes.draw do
   end
 
   resources :relationships
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 end
