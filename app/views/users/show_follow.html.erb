@@ -1,7 +1,7 @@
-<h1 class="text-center border-bottom p-4 mb-3">Users</h1>
+<h1 class="text-center border-bottom p-4 mb-3"><%= @title %></h1>
 
 <div class="paginate text-center">
-    <%= will_paginate %>
+    <%= will_paginate @users %>
 </div>
 <div class="container">
     <div class="row">
@@ -25,5 +25,5 @@
 </div>
 
 <div class="paginate text-center">
-    <%= will_paginate %>
+    <%= will_paginate @users %>
 </div>
