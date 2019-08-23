@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships,source: :follower
   has_many :activities
   has_many :answers, through: :lessons
+  has_many :categories, through: :lessons
+
 
   has_secure_password
   before_save { email.downcase! }

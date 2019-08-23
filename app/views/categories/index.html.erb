@@ -4,13 +4,13 @@
             <h1>Lessons</h1>
             <ul class="nav nav-pills nav-tabs justify-content-center mt-4">
                 <li class="nav-item tab_settings">
-                    <%= link_to "All", "#" , class: "nav-link active"%>
+                    <%= link_to "All", categories_index_path , class: "nav-link active"%>
                 </li>
                 <li class="nav-item tab_settings">
-                    <%= link_to "Learned", "#" , class: "nav-link"%>
+                    <%= link_to "Learned", categories_index_path(learned: "1") , class: "nav-link"%>
                 </li>
                 <li class="nav-item tab_settings">
-                    <%= link_to "Not Learned", "#" , class: "nav-link"%>
+                    <%= link_to "Not Learned", categories_index_path(learned: "0") , class: "nav-link"%>
                 </li>
             </ul>
             <br>
