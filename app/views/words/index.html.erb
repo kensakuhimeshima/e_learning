@@ -1,0 +1,57 @@
+<div class="bg-dark vh-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mt-4">
+                <div>
+                    <div class="card" style="width: 20rem;">
+                        <% if @user.avatar? %>
+                            <%= image_tag @user.avatar.url , class: "profile-picture" %>
+                        <% else%>
+                            <%= image_tag 'image2.jpeg', class: "profile-picture"%>
+                        <% end %>
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><%= @user.name %></h5>
+                            <p class="card-text"><%= @user.email %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 pt-3 text-black">
+                <div class ="card mt-2">
+                    <div class ="card-header">Words learned</div>
+                    <div class ="card-body">
+                        <table class="table mt-3 table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Word</th>
+                                    <th scope="col">Your Answer</th>
+                                    <th scope="col">Correct Answer</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @answers.each do |answer| %>
+                                    <tr>
+                                        <td><%= answer.word.content %></td>
+                                        <td><%= answer.choice.content %></td>
+                                        <td><%= answer.word.correct_answer %></td>
+                                        <td>
+                                            <% if answer.choice.is_correct? %>
+                                                <i class= "fa fa-check"><i>
+                                            <% else %>
+                                                <i class= "fa fa-times"><i>
+                                            <% end %>
+                                        </td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
