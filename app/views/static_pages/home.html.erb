@@ -1,31 +1,77 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <%=image_tag 'code-2620118_1280.jpg', class:"d-block w-100", size:'736x650'%>
-            <div class="carousel-caption d-none d-md-block" >
-                <h1>Welcome to Elearning</h1>
-                <p >Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                <a class="btn btn-outline-success btn-lg" href="#">Get Started</a>
+<% if logged_in? %>
+    <div class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div>
+                        <div class="card mt-4" style="width: 20rem;">
+                            <% if current_user.avatar? %>
+                                <%= image_tag current_user.avatar.url , class: "profile-picture" %>
+                            <% else%>
+                                <%= image_tag 'image2.jpeg', class: "profile-picture"%>
+                            <% end %>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"><%= current_user.name %></h5>
+                                <p class="card-text"><%= current_user.email %></p>
+                            </div>
+                            <ul class="list-group list-group-flush text-center">
+                                <li class="list-group-item"><a href="<%= following_user_path(current_user)%>"><%= current_user.following.count %>Following</a></li>
+                                <li class="list-group-item"><a href="<%= followers_user_path(current_user)%>"><%= current_user.followers.count %>Followers</a></li>
+                                <% unless current_user == current_user%>
+                                    <%= render 'follow_form' if logged_in? %>
+                                <% end %>
+                            </ul>
+                            <div class="card-body text-center">
+                                <% total = current_user.answers.count %>
+                                <h4><%= link_to "Words Learned: #{total}", "#" %></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 pt-3 text-black">
+                    <div class ="card mt-2">
+                        <div class ="card-header">Activities</div>
+                        <div class ="card-body">
+                            <div class="paginate text-center">
+                                <%= will_paginate @feeds %> 
+                            </div>
+                            <%= render 'shared/feed' %>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <%=image_tag 'laptop-3187095_1280.jpg', class:"d-block w-100", size:'736x650' %>
-        </div>
-        <div class="carousel-item">
-            <%= image_tag 'startup-593341_1280.jpg', class:"d-block w-100", size:'736x650'%>
-        </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+<% else %>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <%=image_tag 'code-2620118_1280.jpg', class:"d-block w-100", size:'736x650'%>
+                <div class="carousel-caption d-none d-md-block" >
+                    <h1>Welcome to Elearning</h1>
+                    <p >Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <a class="btn btn-outline-success btn-lg" href="#">Get Started</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <%=image_tag 'laptop-3187095_1280.jpg', class:"d-block w-100", size:'736x650' %>
+            </div>
+            <div class="carousel-item">
+                <%= image_tag 'startup-593341_1280.jpg', class:"d-block w-100", size:'736x650'%>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+<% end %>
