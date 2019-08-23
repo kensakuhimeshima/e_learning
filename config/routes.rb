@@ -26,4 +26,6 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
+  resources :words, only: [:index]
 end
