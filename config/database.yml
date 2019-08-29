@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: e_learning_production
-  username: e_learning
-  password: <%= ENV['E_LEARNING_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
